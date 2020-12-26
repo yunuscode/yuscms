@@ -10,7 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.0",
+    "config": "^3.3.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "path": "^0.12.7",
     "pg": "^8.5.1"
   }
 }
