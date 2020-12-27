@@ -17,5 +17,8 @@
     "glob": "^7.1.6",
     "path": "^0.12.7",
     "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
