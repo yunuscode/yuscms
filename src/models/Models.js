@@ -47,7 +47,7 @@ export default class Models {
 				allowNull: false,
 			},
 		});
-		await db.session.belongsTo(db.users, {
+		await db.sessions.belongsTo(db.users, {
 			foreignKey: {
 				name: "user_id",
 				allowNull: false,

@@ -1,4 +1,4 @@
-import pkg, { Model } from "sequelize";
+import pkg from "sequelize";
 import { Sequelize } from "sequelize";
 import Models from "../models/Models.js";
 
@@ -15,7 +15,7 @@ export async function postgres() {
 		db.users = await Models.UserModel(sequelize, Sequelize);
 		db.sessions = await Models.SessionModel(sequelize, Sequelize);
 
-		await Model.Relations(db);
+		await Models.Relations(db);
 
 		await sequelize.sync({ force: true });
 

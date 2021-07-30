@@ -3,7 +3,12 @@ import { ErrorHandler } from "../helpers/handleError.js";
 export default class HomeController {
 	static async HomeGetController(request, response, next) {
 		try {
-			throw new ErrorHandler(404, "Not found");
+			response.status(200).json({
+				ok: true,
+				appName: "YUSCMS",
+				version: "0.0.2",
+				documentation: "/",
+			});
 		} catch (error) {
 			next(error);
 		}
