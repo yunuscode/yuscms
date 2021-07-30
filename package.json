@@ -1,0 +1,26 @@
+{
+	"name": "yuscms",
+	"version": "1.0.0",
+	"description": "Yunus's User System CMS",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon ./server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/muhammadyunusuz/yuscms.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/muhammadyunusuz/yuscms/issues"
+	},
+	"homepage": "https://github.com/muhammadyunusuz/yuscms#readme",
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1"
+	}
+}
