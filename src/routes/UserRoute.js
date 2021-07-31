@@ -3,7 +3,9 @@ import UserController from "../controllers/UserController.js";
 
 const UserRouter = Router();
 
+UserRouter.post("/account", UserController.UserCreateAccount);
+
 export default {
-	path: "/",
+	path: "/users",
 	router: UserRouter,
 };

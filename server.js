@@ -28,7 +28,7 @@ async function server() {
 	// new Error handler set to res
 	app.use((req, res, next) => {
 		res.error = ErrorHandler;
-		req.db = postgres;
+		req.db = db;
 		next();
 	});
 

@@ -17,9 +17,16 @@ export default class Models {
 				type: Sequelize.DataTypes.STRING(64),
 				allowNull: false,
 			},
+			user_username: {
+				type: Sequelize.DataTypes.STRING(32),
+				allowNull: false,
+				is: /^[a-zA-Z]{5,}\d*$/i,
+				unique: true,
+			},
 			user_role: {
 				type: Sequelize.DataTypes.ENUM,
 				values: ["superadmin", "admin", "user"],
+				defaultValue: "user",
 			},
 		});
 	}
