@@ -17,7 +17,7 @@ export async function postgres() {
 
 		await Models.Relations(db);
 
-		await sequelize.sync({ force: true });
+		await sequelize.sync({ force: false });
 
 		return db;
 	} catch (error) {

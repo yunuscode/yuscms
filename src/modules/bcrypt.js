@@ -1,4 +1,4 @@
-import { genSalt, hash, compare } from "bcrypt";
+import { genSalt, compare } from "bcrypt";
 
 export async function createNewHash(data) {
 	return await hash(data, await genSalt(10));
