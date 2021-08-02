@@ -61,12 +61,6 @@ export default class UserController {
 				request.socket.remoteAddress;
 			const user_agent = request.headers["user-agent"];
 
-			const session = await request.db.sessions.create({
-				user_id: user.user_id,
-				session_inet: user_ip,
-				session_user_agent: user_agent,
-			});
-
 			await request.db.sessions.destroy({
 				where: {
 					[Op.and]: {
@@ -75,6 +69,12 @@ export default class UserController {
 						session_user_agent: user_agent,
 					},
 				},
+			});
+
+			const session = await request.db.sessions.create({
+				user_id: user.user_id,
+				session_inet: user_ip,
+				session_user_agent: user_agent,
 			});
 
 			const access_token = await signJwtToken({
@@ -87,6 +87,17 @@ export default class UserController {
 				data: {
 					token: access_token,
 				},
+			});
+		} catch (error) {
+			if (!error.statusCode)
+				error = new response.error(400, "Invalid inputs");
+			next(error);
+		}
+	}
+	static async UserGetMeAccount(request, response, next) {
+		try {
+			response.json({
+				ok: true,
 			});
 		} catch (error) {
 			if (!error.statusCode)
