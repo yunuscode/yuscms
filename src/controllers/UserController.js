@@ -96,8 +96,18 @@ export default class UserController {
 	}
 	static async UserGetMeAccount(request, response, next) {
 		try {
+			const user = await request.db.users.findOne({
+				where: {
+					user_id: request.session.dataValues.user_id,
+				},
+				include: {
+					model: request.db.sessions,
+				},
+			});
+			delete user.dataValues.user_password;
 			response.json({
 				ok: true,
+				data: user.dataValues,
 			});
 		} catch (error) {
 			if (!error.statusCode)
